@@ -195,6 +195,7 @@ def test_oneimage():
     num_classes = len(WIDERFace_CLASSES) + 1 # +1 background
     net = build_ssd('test', cfg['min_dim'], num_classes) # initialize SSD
     net.load_state_dict(torch.load(args.trained_model))
+    # net.load_state_dict(torch.load(map_location='cpu'))
     net.cuda()
     net.eval()
     print('Finished loading model!')

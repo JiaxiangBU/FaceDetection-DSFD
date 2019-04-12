@@ -2,3 +2,4 @@
 
 1. add r proj and news
 1. ignore weights folder
+1. 需要修改 cpu 的条件
