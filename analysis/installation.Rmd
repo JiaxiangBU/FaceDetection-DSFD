@@ -1,6 +1,11 @@
 ---
+title: "demo 报错信息"
 output: github_document
 ---
+
+```{r}
+suppressMessages(source(here::here("R/load.R")))
+```
 
 ```
 (face_recognization) D:\work\FaceDetection-DSFD>python demo.py
@@ -35,9 +40,9 @@ ch.load with map_location='cpu' to map your storages to the CPU.
 
 需要修改
 
+```{r, child="map_location_cpu.Rmd"}
 ```
-torch.load with map_location='cpu'
-```
+
 
 在 `demo.py` 中，
 
@@ -50,6 +55,28 @@ parser.add_argument('--trained_model', default='weights/WIDERFace_DSFD_RES152.pt
 这个怎么修改，立功兄你知道吗？ torch 这个框架不熟悉。
 
 ```{r eval=FALSE, include=FALSE}
-webshot::webshot("file:///C:/Users/LIJIAX~1/AppData/Local/Temp/RtmpC0Ch5P/preview-13e446beb263.html")
+webshot::webshot("file:///D:/work/FaceDetection-DSFD/analysis/installation.html")
 ```
+
+这个文件大小为
+
+
+```{r}
+dir_info("../weights")
+```
+
+还挺大的。
+
+我认为应该不是导入这个文件，再去修改参数，因为这样很费时。
+应该是在导入前就预处理好
+
+```{r, child="map_location_cpu.Rmd"}
+```
+
+目前编译器打不开，如图。
+
+```{r}
+include_graphics("cannot_open_vs.png")
+```
+
 

@@ -1,3 +1,17 @@
+demo 报错信息
+================
+
+``` r
+suppressMessages(source(here::here("R/load.R")))
+```
+
+    ## Warning: package 'tibble' was built under R version 3.5.3
+
+    ## Warning: package 'dplyr' was built under R version 3.5.3
+
+    ## Warning: package 'rio' was built under R version 3.5.3
+
+    ## Warning: package 'kableExtra' was built under R version 3.5.3
 
     (face_recognization) D:\work\FaceDetection-DSFD>python demo.py
     loading pretrained resnet model
@@ -40,3 +54,33 @@
 这个`.pth`文件打不开，进行参数修改。
 
 这个怎么修改，立功兄你知道吗？ torch 这个框架不熟悉。
+
+这个文件大小为
+
+``` r
+dir_info("../weights")
+```
+
+    ## # A tibble: 1 x 18
+    ##   path                                 type   size permissions
+    ##   <fs::path>                           <fct> <fs:> <fs::perms>
+    ## 1 ../weights/WIDERFace_DSFD_RES152.pth file   459M rw-        
+    ## # ... with 14 more variables: modification_time <dttm>, user <chr>,
+    ## #   group <chr>, device_id <dbl>, hard_links <dbl>,
+    ## #   special_device_id <dbl>, inode <dbl>, block_size <dbl>, blocks <dbl>,
+    ## #   flags <int>, generation <dbl>, access_time <dttm>, change_time <dttm>,
+    ## #   birth_time <dttm>
+
+还挺大的。
+
+我认为应该不是导入这个文件，再去修改参数，因为这样很费时。 应该是在导入前就预处理好
+
+    torch.load with map_location='cpu'
+
+目前编译器打不开，如图。
+
+``` r
+include_graphics("cannot_open_vs.png")
+```
+
+![](cannot_open_vs.png)<!-- -->
