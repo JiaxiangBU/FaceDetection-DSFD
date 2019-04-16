@@ -4,3 +4,4 @@
 1. ignore weights folder
 1. 需要修改 cpu 的条件
 1. 更新 demo 报错信息
+1. update gitignore
